@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Prova</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MayaNotes</title>
 
-
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="components/css/bootstrap-theme.css">
     <link rel="stylesheet" href="style.css" type="text/css">
 
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script type="text/javascript" src="bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+    <script type="text/javascript" src="components/js/angular.js"></script>
+    <script type="text/javascript" src="components/js/angular.min.js"></script>
+    <script type="text/javascript" src="components/js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="components/js/jquery.js"></script>
+    <script type="text/javascript" src="components/js/bootstrap.js"></script>
 
-    <script type="text/javascript" src="scripts/module.js"></script>
-    <script type="text/javascript" src="scripts/routerConfig.js"></script>
+    <script type="text/javascript" src="components/js/angular-pouchdb.js"></script>
 
+    <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/controllers/homeController.js"></script>
     <script type="text/javascript" src="scripts/controllers/detailsController.js"></script>
     <script type="text/javascript" src="scripts/controllers/editController.js"></script>
@@ -26,7 +32,59 @@
 
 
 </head>
-<body ng-app="myApp">
+<body ng-app="mayaNotes">
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Maya Notes
+                </a>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+            <li>
+                <a href="#">Shortcuts</a>
+            </li>
+            <li>
+                <a href="#">Overview</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div ui-view>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
+
 
 </body>
 </html>

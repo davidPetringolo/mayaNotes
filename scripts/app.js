@@ -1,7 +1,4 @@
-/**
- * Created by Phil on 12/05/2016.
- */
-
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb']);
 
 mayaNotes.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home'); //quando apri l'app che stato visualizzo? Di solito punta alla home
@@ -13,7 +10,8 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             controller: 'homeController' //ogni controller gestisce la propria view, ognuno la sua
         })
         .state('details', {
-            url: '/details/:id', //possibilità di passare parametri
+            url: '/details/',
+            //url: '/details/:id', //possibilità di passare parametri
             templateUrl: 'pages/detailsView.html',
             controller: 'detailsController'
         })
