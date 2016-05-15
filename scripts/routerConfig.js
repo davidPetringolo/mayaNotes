@@ -10,7 +10,6 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             controller: 'homeController' 
         })
         .state('details', {
-            url: '/details/',
             url: '/details/:id',
             templateUrl: 'pages/detailsView.html',
             controller: 'detailsController'
