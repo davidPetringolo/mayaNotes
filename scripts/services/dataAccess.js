@@ -9,41 +9,15 @@ mayaNotes.service('dataAccess',
             var temp = [
                 {
                     id: 1,
-                    name: 'Mario',
-                    surname:'Rossi',
-                    sex: 'M',
-                    email: 'mario@rossi.it',
-                    tel: '+391234567',
-                    birthday: '19821101 00:00:00.000',
-                    cityOfBirth: 'Udine',
-                    fiscalCode: 'ABC123DEF456',
-                    address: 'via Pippo 1',
-                    city: 'Pordenone'
+                    date: '15-05-2016',
+                    name: 'Fare la spesa',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus pulvinar eleifend. Vivamus commodo molestie lectus, vel posuere quam. Proin consectetur, eros ac suscipit facilisis, nulla dui euismod nulla, quis fringilla nunc ante quis sapien. Ut commodo ut sem ac pharetra. Vivamus at eros convallis, posuere diam blandit, pulvinar est. Proin commodo lacinia ipsum, quis dictum mi tincidunt et. Cras a tellus nunc.'
                 },
                 {
                     id: 2,
-                    name: 'Paola',
-                    surname:'Bianchi',
-                    sex: 'F',
-                    email: 'paola@bianchi.it',
-                    tel: '+39987654',
-                    birthday: '19850825 00:00:00.000',
-                    cityOfBirth: 'Treviso',
-                    fiscalCode: 'ABC123DEF456',
-                    address: 'via Pluto 12',
-                    city: 'Conegliano'
-                },{
-                    id: 3,
-                    name: 'Alberto',
-                    surname:'Persano',
-                    sex: 'F',
-                    email: 'alberto@yahoo.com',
-                    tel: '+6541645',
-                    birthday: '19850825 00:00:00.000',
-                    cityOfBirth: 'Milano',
-                    fiscalCode: 'SEFDGHJJHFD',
-                    address: 'via Rinascimento Proxio',
-                    city: 'buja'
+                    date: '15-05-2016',
+                    name: 'Lavare la macchina',
+                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus pulvinar eleifend. Vivamus commodo molestie lectus, vel posuere quam. Proin consectetur, eros ac suscipit facilisis, nulla dui euismod nulla, quis fringilla nunc ante quis sapien. Ut commodo ut sem ac pharetra. Vivamus at eros convallis, posuere diam blandit, pulvinar est. Proin commodo lacinia ipsum, quis dictum mi tincidunt et. Cras a tellus nunc.'
                 }
             ];
 

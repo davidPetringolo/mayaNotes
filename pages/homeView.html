@@ -3,3 +3,30 @@
 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 <button class="btn btn-info" ui-sref="details">Dettaglio</button>
+
+<button type="button" class="btn btn-default" ng-click="clearStorage()">Svuota storage</button>
+
+<section class="row">
+    <div class="col-md-12">
+
+        <div ng-repeat="el in list">
+
+            <h3>{{el.name}}</h3>
+            <p>{{el.date}}</p>
+
+            
+
+
+            <hr>
+
+        </div>
+
+
+
+    </div>
+</section>
+
+
+
+
+
