@@ -4,17 +4,27 @@
 <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
 <button class="btn btn-info" ui-sref="details">Dettaglio</button>
 
-<button type="button" class="btn btn-default" ng-click="clearStorage()">Svuota storage</button>
+
 
 <section class="row">
     <div class="col-md-12">
+
+        <button type="button" class="btn btn-default" ng-click="clearStorage()">Svuota storage</button>
 
         <div ng-repeat="el in list">
 
             <h3>{{el.name}}</h3>
             <p>{{el.date}}</p>
 
-            
+            <button type="button" class="btn btn-default"
+                    ui-sref="details({id:el.id})">Dettaglio
+            </button>
+
+            <button type="button" class="btn btn-default"
+                    ui-sref="edit({id:el.id})">Modifica
+            </button>
+
+            <button type="button" class="btn btn-default"  ui-sref="delete({id:el.id})">Cancella</button>
 
 
             <hr>

@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<div class="row">
+    <div class="col-md-12" id="spazio">
+        <h3>
+            Sicuro di voler cancellare l'utente '{{name}} {{surname}}'?
+        </h3>
+
+        <br>
+
+        <button type="button" class="btn btn-default"  ng-click="undoClick()">Annulla</button>
+        <button type="button" class="btn btn-default" ng-click="deleteClick()">Cancella</button>
+
+    </div>
+
+    <div id="formattatore"></div>
+</div>
