@@ -9,7 +9,11 @@
 <section class="row">
     <div class="col-md-12">
 
-        <button type="button" class="btn btn-default" ng-click="clearStorage()">Svuota storage</button>
+        <button type="button" class="btn btn-default" ng-click="clearStorage()">Empty storage</button>
+
+        <button type="button" class="btn btn-default" ng-click="insertClick(x)"
+                ui-sref="insert">Insert note
+        </button>
 
         <div ng-repeat="el in list">
 
@@ -17,14 +21,14 @@
             <p>{{el.date}}</p>
 
             <button type="button" class="btn btn-default"
-                    ui-sref="details({id:el.id})">Dettaglio
+                    ui-sref="details({id:el.id})">Detail
             </button>
 
             <button type="button" class="btn btn-default"
-                    ui-sref="edit({id:el.id})">Modifica
+                    ui-sref="edit({id:el.id})">Edit
             </button>
 
-            <button type="button" class="btn btn-default"  ui-sref="delete({id:el.id})">Cancella</button>
+            <button type="button" class="btn btn-default"  ui-sref="delete({id:el.id})">Delete</button>
 
 
             <hr>

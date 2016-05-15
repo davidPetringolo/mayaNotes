@@ -12,12 +12,6 @@ mayaNotes.service('dataAccess',
                     date: '15-05-2016',
                     name: 'Fare la spesa',
                     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus pulvinar eleifend. Vivamus commodo molestie lectus, vel posuere quam. Proin consectetur, eros ac suscipit facilisis, nulla dui euismod nulla, quis fringilla nunc ante quis sapien. Ut commodo ut sem ac pharetra. Vivamus at eros convallis, posuere diam blandit, pulvinar est. Proin commodo lacinia ipsum, quis dictum mi tincidunt et. Cras a tellus nunc.'
-                },
-                {
-                    id: 2,
-                    date: '15-05-2016',
-                    name: 'Lavare la macchina',
-                    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus pulvinar eleifend. Vivamus commodo molestie lectus, vel posuere quam. Proin consectetur, eros ac suscipit facilisis, nulla dui euismod nulla, quis fringilla nunc ante quis sapien. Ut commodo ut sem ac pharetra. Vivamus at eros convallis, posuere diam blandit, pulvinar est. Proin commodo lacinia ipsum, quis dictum mi tincidunt et. Cras a tellus nunc.'
                 }
             ];
 
