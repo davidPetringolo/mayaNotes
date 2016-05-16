@@ -1,16 +1,16 @@
-
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb']);
 
 mayaNotes.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home'); 
+    $urlRouterProvider.otherwise('/home'); //quando apri l'app che stato visualizzo? Di solito punta alla home
 
     $stateProvider
         .state('home', {
             url: '/home',
             templateUrl: 'pages/homeView.html',
-            controller: 'homeController' 
+            controller: 'homeController' //ogni controller gestisce la propria view, ognuno la sua
         })
         .state('details', {
-            url: '/details/:id',
+            url: '/details/:id', //possibilità di passare parametri
             templateUrl: 'pages/detailsView.html',
             controller: 'detailsController'
         })

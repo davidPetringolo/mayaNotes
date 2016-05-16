@@ -1,10 +1,7 @@
-/**
- * Created by Phil on 12/05/2016.
- */
-
-
 mayaNotes.controller('editController', function ($scope, $state, $stateParams, dataAccess) {
 
+    
+    
     $scope.id = $stateParams.id;
     var currentObj = dataAccess.getById($stateParams.id);
 

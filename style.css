@@ -115,3 +115,74 @@
         margin-right: 0;
     }
 }
+
+h2 {
+    color: dimgrey;
+}
+
+.navbar-default {
+    background-color: #0D7FC4;
+    background-image: none;
+}
+
+.addNoteButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    padding: 5px;
+    border: 1px solid #0D7FC4;
+    background-color: #0D7FC4;
+    text-align: center;
+    cursor: pointer;
+}
+
+.deleteLS {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-circle {
+    width: 49px;
+    height: 49px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 20px;
+    line-height: 2.00;
+    border-radius: 30px;
+}
+
+.btn-circle-micro {
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 13px;
+    line-height: 0.1;
+    border-radius: 30px;
+}
+
+.btn-circle-sm {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 20px;
+    line-height: 1.65;
+    border-radius: 30px;
+}
+
+.btn-circle-lg {
+    width: 79px;
+    height: 79px;
+    text-align: center;
+    padding: 13px 0;
+    font-size: 30px;
+    line-height: 2.00;
+    border-radius: 70px;
+}
