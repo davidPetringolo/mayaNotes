@@ -1,6 +1,6 @@
 mayaNotes.controller('editController', function ($scope, $state, $stateParams, dataAccess) {
 
-    
+
     
     $scope.id = $stateParams.id;
     var currentObj = dataAccess.getById($stateParams.id);
@@ -16,12 +16,9 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, d
         x.name = $scope.name;
         x.date = $scope.date;
         x.text = $scope.text;
-
-        if(confirm("Sicuro di modificare l'utente?")) {
-
-            dataAccess.update(x);
-            $state.go('home');
-        }
+        
+        dataAccess.update(x);
+        $state.go('home');
     }
 
 });

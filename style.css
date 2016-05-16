@@ -137,6 +137,18 @@ h2 {
     cursor: pointer;
 }
 
+.saveButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    padding: 5px;
+    border: 1px solid forestgreen;
+    background-color: forestgreen;
+    text-align: center;
+    cursor: pointer;
+}
+
 .deleteLS {
     position: fixed;
     bottom: 75px;
@@ -185,4 +197,12 @@ h2 {
     font-size: 30px;
     line-height: 2.00;
     border-radius: 70px;
+}
+
+textarea {
+    resize: none;
+}
+
+.noteName {
+    cursor: pointer;
 }
