@@ -19,7 +19,6 @@
     "angular-pouchdb": "~4.1.0",
     "jquery": "1.9.1 - 2",
     "angular-ui-router": "^0.2.18",
-    "bootstrap": "^3.3.6",
-    "angular-material": "^1.0.8"
+    "bootstrap": "^3.3.6"
   }
 }
