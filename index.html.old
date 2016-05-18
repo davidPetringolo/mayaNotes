@@ -24,9 +24,6 @@
     <script type="text/javascript" src="components/js/angular-ui-router.js"></script>
     <script type="text/javascript" src="components/js/jquery.js"></script>
     <script type="text/javascript" src="components/js/bootstrap.js"></script>
-    <script type="text/javascript" src="components/js/moment.min.js"></script>
-    <script type="text/javascript" src="components/js/angular-moment.min.js"></script>
-
 
     <script type="text/javascript" src="components/js/angular-pouchdb.js"></script>
 
@@ -50,16 +47,14 @@
     <div class="container">
         <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav" id="sidenavbutton">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="icon search" href=""><i class="fa fa-search">&nbsp;</i>
-                <input class="cerca" type="search" placeholder="Search" ng-model='query'>
-            </a>
-
+            <!--<a class="navbar-brand " href="#">UX</a>-->
+            <a class="icon search" href=""><i class="fa fa-search"></i></a>
 
         </div>
     </div>
@@ -73,7 +68,7 @@
         <div class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
             <!--<ul data-spy="affix" data-offset-top="120" id="affix" class="nav nav-stacked">-->
             <ul data-offset-top="120" id="affix" class="nav nav-stacked affix">
-                <li><a ui-sref="home"> <i class="fa fa-th"></i> Home</a></li>
+                <li> <a ui-sref="home"> <i class="fa fa-th"></i> Home</a></li>
                 <li><a href="#"> <i class="fa fa-bullhorn"></i> News</a></li>
                 <li><a href="#"> <i class="fa fa-users"></i> Who Whe Are</a></li>
                 <li><a href="#"> <i class="fa fa-map-marker"></i> Map</a></li>
@@ -98,21 +93,11 @@
     </div>
 
     <script>
-
-        $(document).ready(function(){
-            $(".navbar-toggle").click(function(){
-                if ($(".sidebar-offcanvas").hasClass("active")) {
-                    $(".sidebar-offcanvas").removeClass("active");
-                } else {
-                $(".sidebar-offcanvas").addClass("active");
-                }});
-        });
-        $(document).ready(function(){
-            $(".content, li").click(function(){
-                $(".sidebar-offcanvas").removeClass("active");
+        $(document).ready(function() {
+            $('[data-toggle=offcanvas]').click(function() {
+                $('.sidebar-offcanvas').toggleClass('active', 1000);
             });
         });
-
     </script>
 
 

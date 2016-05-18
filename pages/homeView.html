@@ -1,21 +1,20 @@
 <section class="row">
     <div class="col-md-12">
-
         <br>
-
         <div ng-repeat="el in list | filter: query">
 
-            <div class="row">
-                <div class="col-xs-7 col-sm-6 col-md-10">
-                    <h2 class="noteName" ui-sref="details({id:el.id})">{{el.name}}</h2>
-                </div>
-                <div class="col-xs-5 col-sm-6 col-md-2 pulsanti">
-                    <h2>
-                        <i ui-sref="edit({id:el.id})" class="fa fa-pencil" aria-hidden="true"></i>
-                        <i ui-sref="delete({id:el.id})" class="fa fa-trash" aria-hidden="true"></i>
-                    </h2>
-                </div>
+
+        <div class="row">
+            <div class="col-xs-7 col-sm-6 col-md-10">
+                <h2 class="noteName" ui-sref="details({id:el.id})">{{el.name}}</h2>
             </div>
+            <div class="col-xs-5 col-sm-6 col-md-2 pulsanti">
+                <h2>
+                    <i ui-sref="edit({id:el.id})" class="fa fa-pencil" aria-hidden="true">&nbsp;&nbsp;</i>
+                    <i ui-sref="delete({id:el.id})" class="fa fa-trash" aria-hidden="true"></i>
+                </h2>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-md-12">
                     <p>{{el.text}}</p>
