@@ -1,6 +1,6 @@
 mayaNotes.controller('insertController', function ($scope, $state, dataAccess) {
 
-    
+	$scope.date = new Date();
     
     $scope.insertClick = function(){
 
