@@ -1,14 +1,13 @@
 mayaNotes.controller('insertController', function ($scope, $state, dataAccess) {
 
     $scope.date = new Date();
-
-
+    
     $scope.insertClick = function(){
 
         var x = new Object();
 
-        if(!$scope.name || $scope.text) {
-            alert('Inserisci del testo!')
+        if(!$scope.name) {
+            alert('Nome richiesto per aggiungere una nota')
         }
 
         else {
@@ -19,11 +18,5 @@ mayaNotes.controller('insertController', function ($scope, $state, dataAccess) {
             dataAccess.insert(x);
             $state.go('home');
         }
-
-
-
     }
-
-
-
 });
