@@ -66,7 +66,8 @@ h3{font-weight: 300; font-size: 22px;margin-bottom: 40px}
 		-ms-transition: all 0.3s ease-in-out;
 		-o-transition: all 0.3s ease-in-out;
 		transition: all 0.3s ease-in-out;
-		
+
+		height: 100%;
 		width:70%;
 		background-color: #0D7FC4;
 		z-index: 51;
