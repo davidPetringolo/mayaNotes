@@ -210,7 +210,6 @@ textarea {
 .noteName {
     cursor: pointer;
 }
-<<<<<<< HEAD
 .cerca {
     height: 25px;
     font-size: 14px;
@@ -219,9 +218,6 @@ textarea {
     background-color: white;
     color: black;
 }
-
-
-=======
 
 .pulsanti {
     text-align: right;
@@ -333,4 +329,3 @@ nav a {
 nav a:hover {
     color: #3296c8
 }
->>>>>>> e511151fc0c89cb67e9b149afb73e4cbe97dff0d
