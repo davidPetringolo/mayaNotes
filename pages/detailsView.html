@@ -2,9 +2,10 @@
     <div class="col-md-12">
 
         <h2>{{name}}</h2>
-        <p>{{date}}</p>
+        <p>LAST UPDATE: {{date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
         <p>{{text}}</p>
 
+        <i ui-sref="delete({id:el.id})" class="fa fa-trash" aria-hidden="true"></i>
 
     </div>
 </section>

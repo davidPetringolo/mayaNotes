@@ -9,19 +9,17 @@
                 <div class="col-xs-7 col-sm-6 col-md-10">
                     <h2 class="noteName" ui-sref="details({id:el.id})">{{el.name}}</h2>
                 </div>
-                <div class="col-xs-5 col-sm-6 col-md-2">
-                    <button type="button" class="btn btn-circle-sm btn-info" ui-sref="edit({id:el.id})">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" class="btn btn-circle-sm btn-danger" ui-sref="delete({id:el.id})">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </button>
+                <div class="col-xs-5 col-sm-6 col-md-2 pulsanti">
+                    <h2>
+                        <i ui-sref="edit({id:el.id})" class="fa fa-pencil" aria-hidden="true"></i>
+                        <i ui-sref="delete({id:el.id})" class="fa fa-trash" aria-hidden="true"></i>
+                    </h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <p>{{el.text}}</p>
-                    <p>{{el.date}}</p>
+                    <p>{{el.date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
                 </div>
             </div>
 

@@ -120,6 +120,10 @@ h2 {
     color: dimgrey;
 }
 
+i {
+    cursor: pointer;
+}
+
 .navbar-default {
     background-color: #0D7FC4;
     background-image: none;
@@ -206,6 +210,7 @@ textarea {
 .noteName {
     cursor: pointer;
 }
+<<<<<<< HEAD
 .cerca {
     height: 25px;
     font-size: 14px;
@@ -216,3 +221,116 @@ textarea {
 }
 
 
+=======
+
+.pulsanti {
+    text-align: right;
+}
+
+.nav>li>a:active {
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+#navigation-bar {
+    position: relative;
+    height: 60px;
+}
+#search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+}
+#label {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 20;
+}
+#label label {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: url("../img/search.png") 0 0;
+    font-size: 0;
+    color: rgba(0, 0, 0, 0);
+    text-indent: -9999px;
+    cursor: pointer;
+}
+#label label:hover {
+    background: url("../img/search.png") -60px 0
+}
+#label.active label {
+    background: url("../img/search.png") -60px 0
+}
+#input {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 450px;
+    height: 60px;
+    z-index: 5;
+    overflow: hidden;
+}
+#input input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -450px;
+    width: 450px;
+    height: 100%;
+    margin: 0;
+    padding: 0 10px;
+    border: none;
+    background-color: #23688b;
+    color: #fff;
+    font-size: 18px;
+    backface-visibility: none;
+    border-radius: 0;
+    transition: left 0;
+}
+#input input:focus {
+    outline: none
+}
+#input.focus {
+    z-index: 20
+}
+#input.focus input {
+    left: 0;
+    transition: left 0.3s;
+}
+nav {
+    padding-left: 70px;
+    position: relative;
+    z-index: 10;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav li {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+nav a {
+    display: block;
+    padding: 0 15px;
+    color: #c8c8c8;
+}
+nav a:hover {
+    color: #3296c8
+}
+>>>>>>> e511151fc0c89cb67e9b149afb73e4cbe97dff0d

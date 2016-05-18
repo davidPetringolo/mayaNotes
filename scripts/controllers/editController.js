@@ -6,7 +6,7 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, d
     var currentObj = dataAccess.getById($stateParams.id);
 
     $scope.name = currentObj.name;
-    $scope.date = currentObj.date;
+    $scope.date = new Date();
     $scope.text = currentObj.text;
 
     $scope.updateClick = function(){
