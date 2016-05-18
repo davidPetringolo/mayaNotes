@@ -7,12 +7,20 @@ mayaNotes.controller('insertController', function ($scope, $state, dataAccess) {
 
         var x = new Object();
 
-        x.name = $scope.name;
-        x.date = $scope.date;
-        x.text = $scope.text;
+        if(!$scope.name || $scope.text) {
+            alert('Inserisci del testo!')
+        }
 
-        dataAccess.insert(x);
-        $state.go('home');
+        else {
+            x.name = $scope.name;
+            x.date = $scope.date;
+            x.text = $scope.text;
+
+            dataAccess.insert(x);
+            $state.go('home');
+        }
+
+
 
     }
 
