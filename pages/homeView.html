@@ -17,7 +17,7 @@
         </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p>{{el.text}}</p>
+                    <div ng-bind-html=el.text></div>
                     <p>{{el.date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
                 </div>
             </div>

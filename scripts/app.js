@@ -1,4 +1,4 @@
-var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment']);
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular']);
 
 mayaNotes.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home'); //quando apri l'app che stato visualizzo? Di solito punta alla home
