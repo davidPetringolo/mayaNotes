@@ -3,7 +3,7 @@
 
         <h2>{{name}}</h2>
         <p>LAST UPDATE: {{date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
-        <p>{{text}}</p>
+        <div ng-bind-html=text></div>
 
         <i ui-sref="delete({id:id})" class="fa fa-trash" aria-hidden="true"></i>
 
