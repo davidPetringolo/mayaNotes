@@ -18,5 +18,14 @@ mayaNotes.controller('insertController', function ($scope, $state, dataAccess) {
             dataAccess.insert(x);
             $state.go('home');
         }
-    }
+    };
+    $scope.tags = [
+        { text: 'just' },
+        { text: 'some' },
+        { text: 'cool' },
+        { text: 'tags' }
+    ];
+    $scope.loadTags = function(query) {
+        return $http.get('/tags?query=' + query);
+    };
 });

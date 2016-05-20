@@ -21,6 +21,7 @@
     "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",
     "moment": "^2.13.0",
-    "textAngular": "^1.5.1"
+    "textAngular": "^1.5.1",
+    "ng-tags-input": "3.0.0"
   }
 }
