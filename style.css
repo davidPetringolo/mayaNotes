@@ -331,3 +331,10 @@ nav a:hover {
     background-color: white;
     color: black;
 }
+
+.ombra {
+    box-shadow: inset 5px 5px 5px rgba(204,204,204,0.5);
+    -webkit-box-shadow: inset 5px 5px 5px rgba(204,204,204,0.5);
+    -moz-box-shadow: inset 5px 5px 5px rgba(204,204,204,0.5);
+    -o-box-shadow: inset 5px 5px 5px rgba(204,204,204,0.5);
+}
