@@ -12,8 +12,8 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
 
         uploadManager.upload(fileChooser, function (url){
             if(url != ""){
-                _hasImage = true
-                _urlImage = url
+                _hasImage = true;
+                _urlImage = url;
                 console.log("uploadManager");
                 console.log("_hasImage" + _hasImage);
                 console.log("_urlImage" + _urlImage);

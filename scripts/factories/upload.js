@@ -14,7 +14,7 @@ mayaNotes.factory("uploadManager", function() {
     if (file) {
       results.innerHTML = '';
 
-      var _extension = file.toString().split(".")
+      var _extension = file.toString().split(".");
       //if(_extension.length<=1) _extension = "txt"
       //else _extension = _extension.splice(-1)
 
