@@ -2,18 +2,15 @@
     <div class="col-md-12">
         <br>
         <div ng-repeat="el in list | filter: query">
-
-
             <div class="card">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-xs-8 col-sm-8 col-md-10">
-                            <strong class="card-title noteName" ui-sref="details({id:el.doc._id})">{{el.doc.title}}</strong> <p class="lastupdate">Ultimo aggiornamento: {{el.doc.date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
+                            <strong class="card-title noteName" ui-sref="details({id:el.doc._id, rev:el.doc._rev})">{{el.doc.title}}</strong> <p class="lastupdate">Ultimo aggiornamento: {{el.doc.date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-2 pulsanti">
                             <i ui-sref="edit({id:el.doc._id, rev:el.doc._rev})" class="fa fa-pencil fa-2x" aria-hidden="true">&nbsp;&nbsp;</i>
-                            <!--<i ui-sref="delete({id:el.id})" class="fa fa-trash" aria-hidden="true"></i>-->
-                            <i data-toggle="modal" data-target="#deleteModal" class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                            <i data-toggle="modal" data-target="#deleteModal" class="fa fa-trash fa-2x" ng-click="setvar(el.doc._id, el.doc._rev)" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -21,18 +18,13 @@
                     <div class="card-text" ng-bind-html="el.doc.text | characters:100: false"></div>
                 </div>
             </div>
-
             <hr>
-
-
             <!-- Modal -->
             <div class="modal fade modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h4>Sicuro di voler eliminare la nota? {{el.doc.title}}</h4>
-                            <p ng-model="id">{{el.doc._id}}</p><br>
-                            <p ng-model="rev">{{el.doc._rev}}</p>
+                            <h4>Sicuro di voler eliminare la nota?</h4>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger btn-circle-sm annulla" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
@@ -41,17 +33,8 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
     </div>
-
-
 </section>
 
-
-<!--<button type="button" class="btn btn-circle btn-danger deleteLS" ng-click="clearStorage()">
-    <i class="fa fa-trash" aria-hidden="true"></i>
-</button>-->
 <button type="button" class="btn btn-circle btn-info addNoteButton" ui-sref="insert"><i class="fa fa-plus" aria-hidden="true"></i></button>

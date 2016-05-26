@@ -12,13 +12,13 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
 
         var hashTitle = CryptoJS.MD5(_title);
         var hashDate = CryptoJS.MD5(_title);
-        var hash = hashTitle+hashDate;
+        var hash = hashTitle + hashDate;
 
         console.log(document.getElementById('file-chooser').files[0]);
 
-        if(document.getElementById('file-chooser').files[0] != null){
-            uploadManager.upload(fileChooser, function (url){
-                if(url != ""){
+        if (document.getElementById('file-chooser').files[0] != null) {
+            uploadManager.upload(fileChooser, function (url) {
+                if (url != "") {
                     _hasImage = true;
                     _urlImage = url;
                     console.log("uploadManager");
@@ -27,61 +27,27 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
                     console.log("hash " + hash);
                 }
 
-                if(_title) {
+                if (_title) {
                     pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
                     $state.go('home');
                 } else {
                     alert('Metti il titolo per inserire una nota')
-                }
-            }); 
-        } else {
-            if(_title) {
-                    pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
-                    $state.go('home');
-                } else {
-                    alert('Metti il titolo per inserire una nota')
-                }
-        }
-
-        $scope.loadTags = function(query) {
-            return $http.get('/tags?query=' + query);
-        };
-
-        
-
-        
-    };
-
-    /*$scope.date = new Date();
-
-    $scope.insertClick = function(){
-
-        var x = new Object();
-
-        if(!$scope.name) {
-            alert("Serve un titolo per inserire una nuova nota :)")
-        }
-
-        else {
-            var fileChooser = document.getElementById('file-chooser');
-
-            x.name = $scope.name;
-            x.date = $scope.date;
-            x.text = $scope.text;
-            x.hasImage = false
-
-            uploadManager.upload(fileChooser, function (url){
-                if(url != ""){
-                    x.hasImage = true
-                    x.urlImage = url
-                    console.log(url)
                 }
             });
-
-            dataAccess.insert(x);
-            $state.go('home');
+        } else {
+            if (_title) {
+                pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
+                $state.go('home');
+            } else {
+                alert('Metti il titolo per inserire una nota')
+            }
         }
-    };*/
+
+        $scope.loadTags = function (query) {
+            return $http.get('/tags?query=' + query);
+        };
+    };
+    
 
     $scope.backarrow = function () {
         $state.go('home');

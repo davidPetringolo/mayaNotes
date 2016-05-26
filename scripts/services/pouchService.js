@@ -3,16 +3,16 @@
  */
 
 mayaNotes.service('pouchService', function(pouchDB) {
-    
+
     var db = new pouchDB("prova");
 
     /*this.syncDb = function () {
 
-        db.sync('http://127.0.0.1:5984/new', {
-            live: true,
-            retry: true
-        })
-    };*/
+     db.sync('http://127.0.0.1:5984/new', {
+     live: true,
+     retry: true
+     })
+     };*/
 
 
     //MODO SCORRETTO: non si rimuove un oggetto, si aggiunge un campo delete mediante l'update
@@ -46,7 +46,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
     };
 
     this.editDoc = function (id, rev, title, text, tag, date, hasImage, urlImage) {
-        
+
         db.put({
             date: date,
             _id: id,
@@ -73,7 +73,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             completionHandler(err);
         });
     };
-    
+
 
     this.showAll = function (completionHandler) {
 
@@ -82,11 +82,11 @@ mayaNotes.service('pouchService', function(pouchDB) {
             descending: true
             //attachments: true
         }).then(function (result) {
-            
+
             completionHandler(null, result);
             //console.log(result.rows);
         }).catch(function (err) {
-            
+
             completionHandler(err);
             //console.log(err);
         });

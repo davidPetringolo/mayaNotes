@@ -1,4 +1,4 @@
-mayaNotes.service('dataAccess',
+/*mayaNotes.service('dataAccess',
     
         function ($rootScope) {
             var temp = [
@@ -66,4 +66,4 @@ mayaNotes.service('dataAccess',
             };
 
             return result;
-        });
+        });*/

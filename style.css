@@ -317,11 +317,7 @@ strong {
     color: grey;
 }
 .credits {
-    padding-bottom: 200px;
-    position: fixed;
-}
-.acredits {
-    border-top: 1px solid #3fc6f3;
+    position: relative;
 }
 .nav li a {
     border-bottom: none;
