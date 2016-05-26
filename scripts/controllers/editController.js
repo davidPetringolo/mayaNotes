@@ -1,15 +1,41 @@
-/**
- * Created by Phil on 12/05/2016.
- */
+mayaNotes.controller('editController', function ($scope, $state, $stateParams, pouchService) {
 
 
-mayaNotes.controller('editController', function ($scope, $state, $stateParams, dataAccess) {
+    var _id = $stateParams.id;
 
-    $scope.id = $stateParams.id;
+    pouchService.details(_id, function (err, result) {
+        if(!err) {
+            $scope.title = result.title;
+            $scope.text = result.text;
+            $scope.tag = result.tag;
+        } else {
+            alert(err);
+        }
+    });
+
+
+
+
+    $scope.edit = function () {
+
+        var _date = new Date().toISOString();
+        var _id = $stateParams.id;
+        var _rev = $stateParams.rev;
+        var _title = $scope.title;
+        var _text = $scope.text;
+        var _tag = $scope.tag;
+
+        pouchService.editDoc(_id, _rev, _title, _text, _tag, _date);
+
+        $state.go('home');
+    };
+
+
+    /*$scope.id = $stateParams.id;
     var currentObj = dataAccess.getById($stateParams.id);
 
     $scope.name = currentObj.name;
-    $scope.date = currentObj.date;
+    $scope.date = new Date();
     $scope.text = currentObj.text;
 
     $scope.updateClick = function(){
@@ -19,12 +45,14 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, d
         x.name = $scope.name;
         x.date = $scope.date;
         x.text = $scope.text;
+        
+        dataAccess.update(x);
+        $state.go('home');
+    };*/
 
-        if(confirm("Sicuro di modificare l'utente?")) {
 
-            dataAccess.update(x);
-            $state.go('home');
-        }
-    }
+    $scope.backarrow = function () {
+        $state.go('home');
+    };
 
 });

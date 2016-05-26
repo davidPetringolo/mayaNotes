@@ -1,8 +1,3 @@
-/**
- * Created by Phil on 15/05/2016.
- */
-
-
 mayaNotes.service('dataAccess',
     
         function ($rootScope) {

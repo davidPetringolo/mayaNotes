@@ -1,32 +1,44 @@
 <div class="row">
-    <div class="col-md-12" >
-        <h1 class="titoletto">  Add Note </h1>
-    </div>
-</div>
-
-<br><br>
-
-<div class="row">
-    <div class="col-md-4">
-        <form>
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" ng-model="name">
-            <br>
-
-            <label for="surname">Date</label>
-            <input type="text" class="form-control" id="surname" ng-model="date">
-            <br>
-
-            <label for="sex">Text</label>
-            <input type="text" class="form-control" id="sex" ng-model="text">
-            <br>
-
-        </form>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-12">
-         <button type="button" class="btn btn-default" id="spazio" ng-click="insertClick()">Add</button>
+        <div class="row">
+            <div class="col-md-12" >
+                <h2> Nuova Nota </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <label for="name">Titolo</label>
+                    <input type="text" class="form-control" id="name" ng-model="title">
+                    <br>
+
+                    <!--<label for="date">Date</label>-->
+                    <!--<input type="date" class="form-control" id="date" ng-model="date"><br>-->
+
+                    <!--
+                    <label for="text">Testo</label>
+                    <textarea cols="100" rows="10" type="text" class="form-control" id="text" ng-model="text"></textarea>
+                    <br>
+                    -->
+
+                    <label for="tag">Tag</label> <br>
+                    <input type="text" id="tag" ng-model="tag"> <br>
+
+                    <div class="form-group">
+                        <label for="text">Testo:</label>
+                        <textarea class="form-control" rows="10" id="text" ng-model="text"></textarea>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-circle btn-success saveButton" id="spazio" ng-click="insert()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <i class="fa fa-chevron-left fa-2x backarrow" aria-hidden="true" ng-click="backarrow()"></i>
     </div>
 </div>

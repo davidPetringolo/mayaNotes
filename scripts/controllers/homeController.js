@@ -1,18 +1,73 @@
-mayaNotes.controller('homeController', function ($scope, $state, dataAccess) {
+mayaNotes.controller('homeController', function ($scope, $state, $stateParams, pouchService) {
 
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
 
-        $("#wrapper").toggleClass("toggled");
+    
+    pouchService.showAll(function (err, result) {
+        if(!err) {
+            $scope.list = result.rows;
+            //console.log(result);
+        }
     });
 
 
-    $scope.list = dataAccess.getAll();
+    var _id = $scope.id;
+    var _rev = $scope.rev;
+    console.log(_id);
+    console.log(_rev);
 
-    $scope.clearStorage = function(){
-        localStorage.clear();
+    $scope.del = function () {
+
+        pouchService.delDoc(_id, _rev);
+        console.log('ci passa')
+        console.log(_id);
+        console.log(_rev);
+    };
+   
+   
+    $('#deleteModal').on('shown.bs.modal', function () {
+        $('#deleteModal').focus();
+        console.log('modale');
+    });
+
+
+
+
+
+
+
+    $scope.open = function (_customer) {
+
+        var modalInstance = $modal.open({
+            controller: "ModalInstanceCtrl",
+            templateUrl: 'myModalContent.html',
+            resolve: {
+                customer: function()
+                {
+                    return _customer;
+                }
+            }
+        });
+
     };
 
 
+
+
+
+
+
+    /*$scope.list = dataAccess.getAll();
+
+    $scope.deleteClick = function (el) {
+        dataAccess.delete(el);
+    };
+
+    
+    $scope.clearStorage = function(){
+        localStorage.clear();
+        window.location.reload()
+    };*/
+
+    
 
 });
