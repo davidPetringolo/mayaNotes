@@ -3,3 +3,6 @@
 
 #ignore bower_components folder
 bower_components/
+
+#ignore amazonCredentials
+amazonCredentials.js
