@@ -5,7 +5,7 @@ mayaNotes.factory("uploadManager", function() {
   var bucket = new AWS.S3({params: {Bucket: 'tsac-its'}});
   var results = document.getElementById('results');
 
-  function getS3KeyFromFileNameWithExtension(name,ext) {
+  function getS3KeyFromFileNameWithExtension(name) {
     return "MayaNotes/" + name //+ "." + ext
   }
 
@@ -19,7 +19,7 @@ mayaNotes.factory("uploadManager", function() {
       //else _extension = _extension.splice(-1)
 
       var _path = getS3KeyFromFileNameWithExtension(file.name);
-      var _url = "" //"https://tsac-its.s3.amazonaws.com/" + _path
+      var _url = ""
 
       var params = {Key: _path, ContentType: file.type, Body: file};
       var valueUrl = {Bucket: 'tsac-its', Key: _path};

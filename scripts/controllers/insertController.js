@@ -15,13 +15,11 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
                 _hasImage = true
                 _urlImage = url
                 console.log("uploadManager");
-                console.log("_hasImage" + _hasImage);
-                console.log("_urlImage" + _urlImage);
+                console.log("_hasImage " + _hasImage);
+                console.log("_urlImage " + _urlImage);
             }
 
             if(_title) {
-            console.log("_hasImageIF" + _hasImage);
-            console.log("_urlImageIF" + _urlImage);
             pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
 
             $state.go('home');
