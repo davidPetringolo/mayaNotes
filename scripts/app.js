@@ -1,4 +1,4 @@
-var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap']);
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap', 'ngTagsInput']);
 
 mayaNotes.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');

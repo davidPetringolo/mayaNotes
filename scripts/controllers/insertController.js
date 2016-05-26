@@ -1,4 +1,4 @@
-mayaNotes.controller('insertController', function ($scope, $state, pouchService, uploadManager) {
+mayaNotes.controller('insertController', function ($scope, $state, pouchService, uploadManager, $http) {
 
 
     $scope.insert = function () {
@@ -21,12 +21,16 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
 
             if(_title) {
             pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
-
+            
             $state.go('home');
             } else {
                 alert('Metti il titolo per inserire una nota')
             }
         });
+
+        $scope.loadTags = function(query) {
+            return $http.get('/tags?query=' + query);
+        };
 
         
 
