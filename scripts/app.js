@@ -1,4 +1,4 @@
-var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap', 'angularModalService', 'ngTagsInput']);
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap', 'ngTagsInput']);
 
 // AMAZON AWS UPLOAD
 AWS.config.region="eu-west-1";
