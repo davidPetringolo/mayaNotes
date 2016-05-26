@@ -28,13 +28,15 @@ mayaNotes.service('pouchService', function(pouchDB) {
     };
 
 
-    this.insertDoc = function (title, text, tag) {
+    this.insertDoc = function (title, text, tag, hasImage, urlImage) {
 
         db.post({
             date: new Date().toISOString(),
             title: title,
             text: text,
-            tag: tag
+            tag: tag,
+            hasImage: hasImage,
+            urlImage: urlImage
         }).then(function (response) {
             //console.log(response);
 
@@ -43,7 +45,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
         });
     };
 
-    this.editDoc = function (id, rev, title, text, tag, date) {
+    this.editDoc = function (id, rev, title, text, tag, date, hasImage, urlImage) {
         
         db.put({
             date: date,
@@ -51,7 +53,9 @@ mayaNotes.service('pouchService', function(pouchDB) {
             _rev: rev,
             title: title,
             text: text,
-            tag: tag
+            tag: tag,
+            hasImage: hasImage,
+            urlImage: urlImage
         }).then(function(response) {
             console.log(response);
         }).catch(function (err) {

@@ -6,6 +6,7 @@ mayaNotes.controller('detailsController', function ($scope, $state, $stateParams
     $scope.doc = pouchService.details(_id, function (err, result) {
         if(!err) {
             $scope.doc = result;
+            console.log(result);
         } else {
             alert(err);
         }
@@ -18,6 +19,8 @@ mayaNotes.controller('detailsController', function ($scope, $state, $stateParams
     $scope.date = currentObj.date;
     $scope.name = currentObj.name;
     $scope.text = currentObj.text;
+    $scope.hasImage = currentObj.hasImage;
+    $scope.urlImage = currentObj.urlImage;
 
     $scope.deleteClick = function () {
         dataAccess.delete($scope.id);
