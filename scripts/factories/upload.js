@@ -36,8 +36,6 @@ mayaNotes.factory("uploadManager", function() {
         results.innerHTML = err ? 'ERROR!' : 'UPLOADED.';
       });
       
-    } else {
-      results.innerHTML = 'Nothing to upload.';
     }
   }
 

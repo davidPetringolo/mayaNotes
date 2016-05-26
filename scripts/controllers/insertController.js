@@ -10,23 +10,38 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
         var _hasImage = false;
         var _urlImage = "";
 
-        uploadManager.upload(fileChooser, function (url){
-            if(url != ""){
-                _hasImage = true;
-                _urlImage = url;
-                console.log("uploadManager");
-                console.log("_hasImage " + _hasImage);
-                console.log("_urlImage " + _urlImage);
-            }
+        var hashTitle = CryptoJS.MD5(_title);
+        var hashDate = CryptoJS.MD5(_title);
+        var hash = hashTitle+hashDate;
 
+        console.log(document.getElementById('file-chooser').files[0]);
+
+        if(document.getElementById('file-chooser').files[0] != null){
+            uploadManager.upload(fileChooser, function (url){
+                if(url != ""){
+                    _hasImage = true;
+                    _urlImage = url;
+                    console.log("uploadManager");
+                    console.log("_hasImage " + _hasImage);
+                    console.log("_urlImage " + _urlImage);
+                    console.log("hash " + hash);
+                }
+
+                if(_title) {
+                    pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
+                    $state.go('home');
+                } else {
+                    alert('Metti il titolo per inserire una nota')
+                }
+            }); 
+        } else {
             if(_title) {
-            pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
-            
-            $state.go('home');
-            } else {
-                alert('Metti il titolo per inserire una nota')
-            }
-        });
+                    pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
+                    $state.go('home');
+                } else {
+                    alert('Metti il titolo per inserire una nota')
+                }
+        }
 
         $scope.loadTags = function(query) {
             return $http.get('/tags?query=' + query);
