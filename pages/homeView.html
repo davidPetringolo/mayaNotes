@@ -1,6 +1,11 @@
 <section class="row">
     <div class="col-md-12">
         <br>
+        <div class="input-group col-md-12">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <input type="text" class="form-control" placeholder="Cerca" aria-describedby="basic-addon1" ng-model='query'>
+        </div>
+        <hr>
         <div ng-repeat="el in list | filter: query">
             <div class="card">
                 <div class="card-header">
