@@ -1,12 +1,15 @@
+/**
+ * Created by Phil on 12/05/2016.
+ */
+
+
 mayaNotes.controller('editController', function ($scope, $state, $stateParams, dataAccess) {
 
-
-    
     $scope.id = $stateParams.id;
     var currentObj = dataAccess.getById($stateParams.id);
 
     $scope.name = currentObj.name;
-    $scope.date = new Date();
+    $scope.date = currentObj.date;
     $scope.text = currentObj.text;
 
     $scope.updateClick = function(){
@@ -16,18 +19,12 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, d
         x.name = $scope.name;
         x.date = $scope.date;
         x.text = $scope.text;
-        
-        dataAccess.update(x);
-        $state.go('home');
-    };
-    $scope.tags = [
-        { text: 'just' },
-        { text: 'some' },
-        { text: 'cool' },
-        { text: 'tags' }
-    ];
-    $scope.loadTags = function(query) {
-        return $http.get('/tags?query=' + query);
-    };
+
+        if(confirm("Sicuro di modificare l'utente?")) {
+
+            dataAccess.update(x);
+            $state.go('home');
+        }
+    }
 
 });

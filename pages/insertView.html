@@ -1,29 +1,25 @@
 <div class="row">
     <div class="col-md-12" >
-        <h2> Nuova Nota </h2>
+        <h1 class="titoletto">  Add Note </h1>
     </div>
 </div>
+
+<br><br>
+
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
         <form>
-            <label for="name">Titolo</label>
+            <label for="name">Name</label>
             <input type="text" class="form-control" id="name" ng-model="name">
             <br>
-            <tags-input ng-model="tags">
-                <auto-complete source="loadTags($query)"></auto-complete>
-            </tags-input>
+
+            <label for="surname">Date</label>
+            <input type="text" class="form-control" id="surname" ng-model="date">
             <br>
 
-            <!--<label for="date">Date</label>-->
-            <!--<input type="date" class="form-control" id="date" ng-model="date"><br>-->
-
-            <!--
-            <label for="text">Testo</label>
-            <textarea cols="100" rows="10" type="text" class="form-control" id="text" ng-model="text"></textarea>
+            <label for="sex">Text</label>
+            <input type="text" class="form-control" id="sex" ng-model="text">
             <br>
-            -->
-
-            <div text-angular ng-model="text"></div>
 
         </form>
     </div>
@@ -31,6 +27,6 @@
 
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-circle btn-success saveButton" id="spazio" ng-click="insertClick()"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+         <button type="button" class="btn btn-default" id="spazio" ng-click="insertClick()">Add</button>
     </div>
 </div>
