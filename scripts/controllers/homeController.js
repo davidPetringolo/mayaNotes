@@ -12,8 +12,8 @@ mayaNotes.controller('homeController', function ($scope, $state, $stateParams, p
 
     var _id = $scope.id;
     var _rev = $scope.rev;
-    console.log(_id);
-    console.log(_rev);
+    //console.log(_id);
+    //console.log(_rev);
 
     $scope.del = function () {
 
