@@ -1,4 +1,24 @@
-var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap', 'ngTagsInput']);
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'truncate', 'ngTagsInput']);
+
+// AMAZON AWS UPLOAD
+AWS.config.region="eu-west-1";
+AWS.config.update({
+        accessKeyId: 'AKIAJWVPLIL77277XEZQ', secretAccessKey: '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'
+});
+
+$(document).ready(function(){
+    $(".navbar-toggle").click(function(){
+        if ($(".sidebar-offcanvas").hasClass("active")) {
+            $(".sidebar-offcanvas").removeClass("active");
+        } else {
+            $(".sidebar-offcanvas").addClass("active");
+        }});
+});
+$(document).ready(function(){
+    $(".content, li, .sidebar-offcanvas").click(function(){
+        $(".sidebar-offcanvas").removeClass("active");
+    });
+});
 
 mayaNotes.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
@@ -10,7 +30,7 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             controller: 'homeController'
         })
         .state('details', {
-            url: '/details/:id',
+            url: '/details/:id/:rev',
             templateUrl: 'pages/detailsView.html',
             controller: 'detailsController'
         })
@@ -26,9 +46,10 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             controller: 'insertController'
         })
 
-        .state('delete', {
-            templateUrl: 'pages/deleteView.html',
-            controller: 'deleteController'
-        })
-    ;
+        .state('contacts', {
+            url: '/contacts/',
+            templateUrl: 'pages/contactsView.html',
+            controller: 'contactsController'
+        });
+    
 });

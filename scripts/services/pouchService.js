@@ -1,20 +1,15 @@
-/**
- * Created by Phil on 20/05/2016.
- */
-
 mayaNotes.service('pouchService', function(pouchDB) {
-    
+
     var db = new pouchDB("prova");
 
     /*this.syncDb = function () {
 
-        db.sync('http://127.0.0.1:5984/new', {
-            live: true,
-            retry: true
-        })
-    };*/
-
-
+     db.sync('http://127.0.0.1:5984/new', {
+     live: true,
+     retry: true
+     })
+     };*/
+    
     //MODO SCORRETTO: non si rimuove un oggetto, si aggiunge un campo delete mediante l'update
 
     this.delDoc = function (id, rev) {
@@ -26,8 +21,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             //console.log(err);
         });
     };
-
-
+    
     this.insertDoc = function (title, text, tag, hasImage, urlImage) {
 
         db.post({
@@ -46,7 +40,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
     };
 
     this.editDoc = function (id, rev, title, text, tag, date, hasImage, urlImage) {
-        
+
         db.put({
             date: date,
             _id: id,
@@ -74,7 +68,6 @@ mayaNotes.service('pouchService', function(pouchDB) {
         });
     };
     
-
     this.showAll = function (completionHandler) {
 
         db.allDocs({
@@ -82,17 +75,16 @@ mayaNotes.service('pouchService', function(pouchDB) {
             descending: true
             //attachments: true
         }).then(function (result) {
-            
+
             completionHandler(null, result);
             //console.log(result.rows);
         }).catch(function (err) {
-            
+
             completionHandler(err);
             //console.log(err);
         });
     };
-
-
+    
     this.delete = function () {
 
         db.destroy().then(function (response) {
@@ -102,8 +94,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             console.log(err);
         });
     };
-
-
+    
     this.info = function () {
         db.info().then(function (info) {
             console.log('INFO');

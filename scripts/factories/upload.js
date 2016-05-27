@@ -57,6 +57,5 @@ mayaNotes.factory("uploadManager", function() {
       });
     }
   }
-
   return uploadManager;
 });

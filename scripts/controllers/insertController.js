@@ -6,7 +6,7 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
 
         var _title = $scope.title;
         var _text = $scope.text;
-        var _tag = $scope.tag;
+        var _tag = $scope.tags;
         var _hasImage = false;
         var _urlImage = "";
 
@@ -22,9 +22,10 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
             });
         } else{
             insertNote(_title, _text, _tag, _hasImage, _urlImage);
+
         }
 
-        $scope.loadTags = function(query) {
+        $scope.loadTags = function (query) {
             return $http.get('/tags?query=' + query);
         };    
     };
