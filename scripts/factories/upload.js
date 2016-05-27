@@ -10,7 +10,7 @@ mayaNotes.factory("uploadManager", function() {
   }
 
   function extensionControl (ext) {
-    if(ext == "jpg" || ext == "png" || ext == "gif" || ext == "bmp" || ext == "txt")
+    if(ext == "jpg" || ext == "png" || ext == "gif" || ext == "bmp"/* || ext == "txt"*/)
       return ext;
     else
       alert("Estensione --> " + ext + " <-- non valida!");
@@ -34,7 +34,10 @@ mayaNotes.factory("uploadManager", function() {
 
   function splitExtension (nameWithExt) {
     var splittedFileName = nameWithExt.split(".");
-    var ext = splittedFileName[1];
+    //if(splittedFileName[1] == undefined)
+    //  var ext = "txt";
+    //else
+      var ext = splittedFileName[1];
     return ext;
   }
 
@@ -42,6 +45,7 @@ mayaNotes.factory("uploadManager", function() {
     var file = fileChooser.files[0];
     if (file) {
       _extension = splitExtension(file.name);
+      console.log();
       extensionControl(_extension);
 
       var _hash = createsHash(_title);
@@ -57,5 +61,6 @@ mayaNotes.factory("uploadManager", function() {
       });
     }
   }
+
   return uploadManager;
 });
