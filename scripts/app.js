@@ -1,12 +1,10 @@
-var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'textAngular', 'truncate', 'pouchdb', 'ui.bootstrap', 'ngTagsInput']);
+var mayaNotes = angular.module('mayaNotes', ['ui.router', 'pouchdb', 'angularMoment', 'truncate', 'ngTagsInput']);
 
 // AMAZON AWS UPLOAD
 AWS.config.region="eu-west-1";
 AWS.config.update({
         accessKeyId: 'AKIAJWVPLIL77277XEZQ', secretAccessKey: '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'
 });
-
-
 
 $(document).ready(function(){
     $(".navbar-toggle").click(function(){
@@ -17,7 +15,7 @@ $(document).ready(function(){
         }});
 });
 $(document).ready(function(){
-    $(".content, li").click(function(){
+    $(".content, li, .sidebar-offcanvas").click(function(){
         $(".sidebar-offcanvas").removeClass("active");
     });
 });
@@ -52,6 +50,6 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             url: '/contacts/',
             templateUrl: 'pages/contactsView.html',
             controller: 'contactsController'
-        })
-    ;
+        });
+    
 });

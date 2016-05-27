@@ -7,23 +7,21 @@ mayaNotes.controller('detailsController', function ($scope, $state, $stateParams
         if(!err) {
             $scope.doc = result;
             rev = result._rev;
+            console.log(result);
         } else {
             alert(err);
         }
     });
-
-
+    
     $scope.del = function () {
         pouchService.delDoc(_id, rev);
         $state.go('home');
     };
-
-
+    
     $scope.backarrow = function () {
         $state.go('home');
     };
-
-
+    
     $('#deleteModal').on('shown.bs.modal', function () {
         $('#deleteModal').focus()
     })

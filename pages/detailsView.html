@@ -11,19 +11,22 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div ng-bind-html=doc.text></div>
+                <div ng-repeat="n in doc.tag">
+                    {{n.text}}
+                </div>
             </div>
         </div>
-
-                 <div class="row">
-                     <div class="col-md-12">
-                         <img src="{{doc.urlImage}}" ng-hide="{{doc.hasImage}}"/>
-                         </br>
-                     </div>
-                 </div>
-
-
-
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-bind=doc.text></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{doc.urlImage}}" ng-hide="{{doc.hasImage}}"/>
+                </br>
+            </div>
+        </div>
         <!-- Modal -->
         <div class="modal fade modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-sm" role="document">

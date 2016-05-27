@@ -11,15 +11,13 @@ mayaNotes.controller('homeController', function ($scope, $state, $stateParams, p
             $state.reload('home')
         }
     };
-
-
+    
     pouchService.showAll(function (err, result) {
         if(!err) {
             $scope.list = result.rows;
             //console.log(result);
         }
     });
-    
     
     $('#deleteModal').on('shown.bs.modal', function () {
         $('#deleteModal').focus();

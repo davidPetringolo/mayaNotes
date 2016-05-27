@@ -1,12 +1,11 @@
 mayaNotes.controller('insertController', function ($scope, $state, pouchService, uploadManager, $http) {
-
-
+    
     $scope.insert = function () {
         var fileChooser = document.getElementById('file-chooser');
 
         var _title = $scope.title;
         var _text = $scope.text;
-        var _tag = $scope.tag;
+        var _tag = $scope.tags;
         var _hasImage = false;
         var _urlImage = "";
 
@@ -48,7 +47,6 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
         };
     };
     
-
     $scope.backarrow = function () {
         $state.go('home');
     };

@@ -6,7 +6,7 @@ mayaNotes.factory("uploadManager", function() {
   var results = document.getElementById('results');
 
   function getS3KeyFromFileNameWithExtension(name) {
-    return "MayaNotes/" + name //+ "." + ext
+    return "MayaNotes/" + name; //+ "." + ext
   }
 
   uploadManager.upload = function (fileChooser, completionHandler){
@@ -37,10 +37,7 @@ mayaNotes.factory("uploadManager", function() {
       });
       
     }
-  }
-
-  
-
+  };
 
   return uploadManager;
 });

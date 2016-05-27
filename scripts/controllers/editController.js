@@ -11,7 +11,6 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
             alert(err);
         }
     });
-
     
     $scope.edit = function () {
 
@@ -27,7 +26,6 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
         $state.go('home');
     };
     
-
     $scope.backarrow = function () {
         $state.go('home');
     };

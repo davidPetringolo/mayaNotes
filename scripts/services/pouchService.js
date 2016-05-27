@@ -1,7 +1,3 @@
-/**
- * Created by Phil on 20/05/2016.
- */
-
 mayaNotes.service('pouchService', function(pouchDB) {
 
     var db = new pouchDB("prova");
@@ -13,8 +9,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
      retry: true
      })
      };*/
-
-
+    
     //MODO SCORRETTO: non si rimuove un oggetto, si aggiunge un campo delete mediante l'update
 
     this.delDoc = function (id, rev) {
@@ -26,8 +21,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             //console.log(err);
         });
     };
-
-
+    
     this.insertDoc = function (title, text, tag, hasImage, urlImage) {
 
         db.post({
@@ -73,8 +67,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             completionHandler(err);
         });
     };
-
-
+    
     this.showAll = function (completionHandler) {
 
         db.allDocs({
@@ -91,8 +84,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             //console.log(err);
         });
     };
-
-
+    
     this.delete = function () {
 
         db.destroy().then(function (response) {
@@ -102,8 +94,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
             console.log(err);
         });
     };
-
-
+    
     this.info = function () {
         db.info().then(function (info) {
             console.log('INFO');
