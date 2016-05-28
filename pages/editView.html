@@ -14,6 +14,12 @@
                 <label for="text">Testo:</label>
                 <textarea class="form-control" rows="10" id="text" ng-model="text" ng-bind=doc.text></textarea>
             </div>
+            <div class="form-group">
+                <img src="{{urlImage}}" ng-hide="{{hasImage}}"/>
+                </br>
+                </br>
+                <input type="file" id="file-chooser" /><div id="results"></div>
+            </div>
         </form>
         <div class="row" >
             <div class="col-md-12">

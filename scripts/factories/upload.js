@@ -24,7 +24,7 @@ mayaNotes.factory("uploadManager", function() {
     return hash
   }
 
-  function createsUrl (valueUrl) {
+  function generateUrl (valueUrl) {
     bucket.getSignedUrl('getObject', valueUrl, function (err, url) {
       //console.log("The URL is", url);
       //console.log(err);
@@ -51,8 +51,8 @@ mayaNotes.factory("uploadManager", function() {
       var _hash = createsHash(_title);
       var _path = getS3KeyFromFileNameWithExtension(_hash, _extension);
       var valueUrl = {Bucket: 'tsac-its', Key: _path};
-      //var _url = createsUrl(valueUrl);
-      createsUrl(valueUrl);
+      //var _url = generateUrl(valueUrl);
+      generateUrl(valueUrl);
       var params = {Key: _path, ContentType: file.type, Body: file};
 
       bucket.upload(params, function (err, data) {
