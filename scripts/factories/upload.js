@@ -44,21 +44,28 @@ mayaNotes.factory("uploadManager", function() {
   uploadManager.upload = function (fileChooser, _title, completionHandler){
     var file = fileChooser.files[0];
     if (file) {
-      _extension = splitExtension(file.name);
-      console.log();
-      extensionControl(_extension);
+      var sizeMegabyte = file.size/1000000;
+      //console.log("Dimensione file " + file.size);
+      //console.log("Dimensione file Mega " + sizeMegabyte);
+      if(sizeMegabyte <= 2.048 ){
+        _extension = splitExtension(file.name);
+        console.log();
+        extensionControl(_extension);
 
-      var _hash = createsHash(_title);
-      var _path = getS3KeyFromFileNameWithExtension(_hash, _extension);
-      var valueUrl = {Bucket: 'tsac-its', Key: _path};
-      //var _url = generateUrl(valueUrl);
-      generateUrl(valueUrl);
-      var params = {Key: _path, ContentType: file.type, Body: file};
+        var _hash = createsHash(_title);
+        var _path = getS3KeyFromFileNameWithExtension(_hash, _extension);
+        var valueUrl = {Bucket: 'tsac-its', Key: _path};
+        //var _url = generateUrl(valueUrl);
+        generateUrl(valueUrl);
+        var params = {Key: _path, ContentType: file.type, Body: file};
 
-      bucket.upload(params, function (err, data) {
-        //console.log(err, data);
-        completionHandler(_url);;
-      });
+        bucket.upload(params, function (err, data) {
+          //console.log(err, data);
+          completionHandler(_url);;
+        });
+      } else {
+        alert("Dimensione file superiore a 2 Megabyte")
+      }
     }
   }
 
