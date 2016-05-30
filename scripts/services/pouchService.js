@@ -1,14 +1,20 @@
 mayaNotes.service('pouchService', function(pouchDB) {
 
-    var db = new pouchDB("prova");
+    var db = new pouchDB("localnotes");
+    var remdb = new pouchDB("http://ec2-52-39-178-119.us-west-2.compute.amazonaws.com:5984/mayadb");
 
-    /*this.syncDb = function () {
-
-     db.sync('http://127.0.0.1:5984/new', {
-     live: true,
-     retry: true
-     })
-     };*/
+    db.sync(remdb, {
+      live: true,
+      retry: true
+    }).on('change', function (change) {
+      console.log("Changes");
+    }).on('paused', function (info) {
+      console.log("Replicaton paused");
+    }).on('active', function (info) {
+      console.log("Replication resumed");
+    }).on('error', function (err) {
+      console.log(err);
+    });
     
     //MODO SCORRETTO: non si rimuove un oggetto, si aggiunge un campo delete mediante l'update
 
