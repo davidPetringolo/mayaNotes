@@ -18,19 +18,6 @@ mayaNotes.controller('homeController', function ($scope, $state, $stateParams, p
             //console.log(result);
         }
     });
-
-    var _id = $scope.id;
-    var _rev = $scope.rev;
-    //console.log(_id);
-    //console.log(_rev);
-
-    $scope.del = function () {
-
-        pouchService.delDoc(_id, _rev);
-        console.log('ci passa')
-        console.log(_id);
-        console.log(_rev);
-    };
    
     $('#deleteModal').on('shown.bs.modal', function () {
         $('#deleteModal').focus();
