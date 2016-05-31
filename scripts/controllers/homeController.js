@@ -1,12 +1,20 @@
-mayaNotes.controller('homeController', function ($scope, $state, $stateParams, pouchService) {
+mayaNotes.controller('homeController', function ($scope, $state, $stateParams, pouchService, uploadManager) {
     
-    var idDel = '';
-    var revDel = '';
-    
-    $scope.setvar = function (var1, var2) {
-        idDel = var1;
-        revDel = var2;
+    var idDel = "";
+    var revDel = "";
+    var _hasImage = "";
+    var _urlImage = "";
+
+
+    $scope.setvar = function (id, rev, image) {
+        idDel = id;
+        revDel = rev;
+        _image = image;
+
         $scope.del = function () {
+            uploadManager.deleteFile(_image, function (){
+                
+            });
             pouchService.delDoc(idDel, revDel);
             $state.reload('home')
         }
@@ -18,19 +26,6 @@ mayaNotes.controller('homeController', function ($scope, $state, $stateParams, p
             //console.log(result);
         }
     });
-
-    var _id = $scope.id;
-    var _rev = $scope.rev;
-    //console.log(_id);
-    //console.log(_rev);
-
-    $scope.del = function () {
-
-        pouchService.delDoc(_id, _rev);
-        console.log('ci passa')
-        console.log(_id);
-        console.log(_rev);
-    };
    
     $('#deleteModal').on('shown.bs.modal', function () {
         $('#deleteModal').focus();

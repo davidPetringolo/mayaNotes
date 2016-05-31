@@ -27,6 +27,7 @@
     "angular-pouchdb": "^4.1.0",
     "moment": "^2.13.0",
     "angular-moment": "^0.10.3",
-    "crypto-js": "^3.1.6"
+    "crypto-js": "^3.1.6",
+    "Angular.uuid2": "angular-uuid2#*"
   }
 }

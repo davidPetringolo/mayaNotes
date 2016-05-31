@@ -1,12 +1,13 @@
-mayaNotes.factory("uploadManager", function() {
+mayaNotes.factory("uploadManager", function(uuid2) {
 
   var uploadManager = {};
   var bucket = new AWS.S3({params: {Bucket: 'tsac-its'}});
   var results = document.getElementById('results');
+  var bucketNameS3 = 'tsac-its';
   var _url = null;
 
-  function getS3KeyFromFileNameWithExtension (hash, ext) {
-    return "MayaNotes/" + hash + "." + ext
+  function getS3KeyFromFileNameWithExtension (name, ext) {
+    return "MayaNotes/" + name + "." + ext
   }
 
   function extensionControl (ext) {
@@ -16,10 +17,10 @@ mayaNotes.factory("uploadManager", function() {
       alert("Estensione --> " + ext + " <-- non valida!");
   }
 
-  function createsHash (_title) {
+  function generateHash (_title) {
     var hashTitle = CryptoJS.MD5(_title);
     var hashDate = CryptoJS.MD5(new Date());
-    var hash = "MN_"+hashTitle+hashDate;
+    var hash = hashTitle+hashDate;
 
     return hash
   }
@@ -41,23 +42,35 @@ mayaNotes.factory("uploadManager", function() {
     return ext;
   }
 
-  uploadManager.upload = function (fileChooser, _title, completionHandler){
+  function splitName (nameWithExt) {
+    var splittedFileName = nameWithExt.split(".");
+    //if(splittedFileName[1] == undefined)
+    //  var ext = "txt";
+    //else
+      var name = splittedFileName[0];
+    return name;
+  }
+
+  uploadManager.upload = function (fileChooser, _title, _image, completionHandler){
     var file = fileChooser.files[0];
     if (file) {
       var sizeMegabyte = file.size/1000000;
       //console.log("Dimensione file " + file.size);
       //console.log("Dimensione file Mega " + sizeMegabyte);
       if(sizeMegabyte <= 2.048 ){
-        _extension = splitExtension(file.name);
+        _extensionFile = splitExtension(file.name);
+        //_nameFile = splitName(file.name);
         console.log();
-        extensionControl(_extension);
+        extensionControl(_extensionFile);
 
-        var _hash = createsHash(_title);
-        var _path = getS3KeyFromFileNameWithExtension(_hash, _extension);
-        var valueUrl = {Bucket: 'tsac-its', Key: _path};
+        //var _hash = generateHash(_title);
+        _image._guid = uuid2.newguid()
+        //var guid = _image._guid;
+        _image._path = getS3KeyFromFileNameWithExtension(_image._guid, _extensionFile);
+        var valueUrl = {Bucket: bucketNameS3, Key: _image._path};
         //var _url = generateUrl(valueUrl);
         generateUrl(valueUrl);
-        var params = {Key: _path, ContentType: file.type, Body: file};
+        var params = {Key: _image._path, ContentType: file.type, Body: file};
 
         bucket.upload(params, function (err, data) {
           //console.log(err, data);
@@ -68,6 +81,25 @@ mayaNotes.factory("uploadManager", function() {
       }
     }
   }
+
+  uploadManager.deleteFile = function (_image) {
+    var params = {
+        Bucket: bucketNameS3,
+        Key: _image.path
+    };
+    bucket.deleteObject(params, function (err, data) {
+        if (data) {
+            console.log("File deleted successfully");
+        }
+        else {
+            console.log("Check if you have sufficient permissions : " + err);
+        }
+    });
+}
+
+
+
+
 
   return uploadManager;
 });

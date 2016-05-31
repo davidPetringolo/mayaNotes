@@ -9,6 +9,7 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
             $scope.tag = result.tag;
             $scope.hasImage = result.hasImage;
             $scope.urlImage = result.urlImage;
+            $scope.guid = result.guid;
         } else {
             alert(err);
         }
@@ -25,6 +26,7 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
         var _tag = $scope.tag;
         var _hasImage = $scope.hasImage;
         var _urlImage = $scope.urlImage;
+        var _guid = $scope.guid;
 
         if(document.getElementById('file-chooser').files[0] != null){
             uploadManager.upload(fileChooser, _title, function (url){
@@ -34,10 +36,10 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
                     //console.log("url insertController " + url)
                 }
 
-                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage);
+                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage, _guid);
             });
         } else{
-                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage);
+                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage, _guid);
         }
 
         $state.go('home');
