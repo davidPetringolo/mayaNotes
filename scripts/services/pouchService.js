@@ -50,7 +50,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
         });
     };
 
-    this.editDoc = function (id, rev, title, text, tag, date) {
+    this.editDoc = function (id, rev, title, text, tag, date, imageData) {
 
         db.put({
             date: date,
@@ -58,7 +58,13 @@ mayaNotes.service('pouchService', function(pouchDB) {
             _rev: rev,
             title: title,
             text: text,
-            tag: tag
+            tag: tag,
+            image: {
+                hasImage: imageData._hasImage,
+                urlImage: imageData._urlImage,
+                guid: imageData._guid,
+                path: imageData._path
+            }
         }).then(function(response) {
             console.log(response);
         }).catch(function (err) {

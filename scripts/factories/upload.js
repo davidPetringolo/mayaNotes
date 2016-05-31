@@ -44,10 +44,7 @@ mayaNotes.factory("uploadManager", function(uuid2) {
 
   function splitName (nameWithExt) {
     var splittedFileName = nameWithExt.split(".");
-    //if(splittedFileName[1] == undefined)
-    //  var ext = "txt";
-    //else
-      var name = splittedFileName[0];
+    var name = splittedFileName[0];
     return name;
   }
 
@@ -55,25 +52,18 @@ mayaNotes.factory("uploadManager", function(uuid2) {
     var file = fileChooser.files[0];
     if (file) {
       var sizeMegabyte = file.size/1000000;
-      //console.log("Dimensione file " + file.size);
-      //console.log("Dimensione file Mega " + sizeMegabyte);
       if(sizeMegabyte <= 2.048 ){
         _extensionFile = splitExtension(file.name);
-        //_nameFile = splitName(file.name);
         console.log();
         extensionControl(_extensionFile);
 
-        //var _hash = generateHash(_title);
         _image._guid = uuid2.newguid()
-        //var guid = _image._guid;
         _image._path = getS3KeyFromFileNameWithExtension(_image._guid, _extensionFile);
         var valueUrl = {Bucket: bucketNameS3, Key: _image._path};
-        //var _url = generateUrl(valueUrl);
         generateUrl(valueUrl);
         var params = {Key: _image._path, ContentType: file.type, Body: file};
 
         bucket.upload(params, function (err, data) {
-          //console.log(err, data);
           completionHandler(_url);;
         });
       } else {

@@ -7,9 +7,10 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
             $scope.title = result.title;
             $scope.text = result.text;
             $scope.tag = result.tag;
-            $scope.hasImage = result.hasImage;
-            $scope.urlImage = result.urlImage;
-            $scope.guid = result.guid;
+            $scope.hasImage = result.image.hasImage;
+            $scope.urlImage = result.image.urlImage;
+            $scope.guid = result.image.guid;
+            $scope.path = result.image.path;
         } else {
             alert(err);
         }
@@ -24,22 +25,24 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
         var _title = $scope.title;
         var _text = $scope.text;
         var _tag = $scope.tag;
-        var _hasImage = $scope.hasImage;
-        var _urlImage = $scope.urlImage;
-        var _guid = $scope.guid;
+        var _image = {
+            "_hasImage": $scope.hasImage,
+            "_urlImage": $scope.urlImage,
+            "_guid": $scope.guid,
+            "_path": $scope.path
+        }
 
         if(document.getElementById('file-chooser').files[0] != null){
-            uploadManager.upload(fileChooser, _title, function (url){
+            uploadManager.upload(fileChooser, _title, _image, function (url){
                 if(url != ""){
-                    _hasImage = true;
-                    _urlImage = url;
-                    //console.log("url insertController " + url)
+                    _image._hasImage = true;
+                    _image._urlImage = url;
                 }
 
-                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage, _guid);
+                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _image);
             });
         } else{
-                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _hasImage, _urlImage, _guid);
+                pouchService.editDoc(_id, _rev, _title, _text, _tag, _date, _image);
         }
 
         $state.go('home');
