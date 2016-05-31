@@ -3,25 +3,29 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
     $scope.insert = function () {
 
         var fileChooser = document.getElementById('file-chooser');
-
+  
         var _title = $scope.title;
         var _text = $scope.text;
         var _tag = $scope.tags;
-        var _hasImage = false;
-        var _urlImage = "";
-
+        var _image = {
+            "_hasImage": false,
+            "_urlImage": "",
+            "_guid": "",
+            "_path": ""
+        }
+        
         if(document.getElementById('file-chooser').files[0] != null){
-            uploadManager.upload(fileChooser, _title, function (url){
+            uploadManager.upload(fileChooser, _title, _image, function (url){
                 if(url != ""){
-                    _hasImage = true;
-                    _urlImage = url;
+                    _image._hasImage = true;
+                    _image._urlImage = url;
                     //console.log("url insertController " + url)
                 }
 
-                insertNote(_title, _text, _tag, _hasImage, _urlImage);
+                insertNote(_title, _text, _tag, _image);
             });
         } else{
-            insertNote(_title, _text, _tag, _hasImage, _urlImage);
+            insertNote(_title, _text, _tag, _image);
 
         }
 
@@ -30,9 +34,9 @@ mayaNotes.controller('insertController', function ($scope, $state, pouchService,
         };    
     };
 
-    function insertNote (_title, _text, _tag, _hasImage, _urlImage){
+    function insertNote (_title, _text, _tag, _image){
         if(_title) {
-            pouchService.insertDoc(_title, _text, _tag, _hasImage, _urlImage);
+            pouchService.insertDoc(_title, _text, _tag, _image);
             $state.go('home');
         } else {
             alert('Metti il titolo per inserire una nota')

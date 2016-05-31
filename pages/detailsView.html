@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <img src="{{doc.urlImage}}" ng-hide="{{doc.hasImage}}"/>
+                <img src="{{doc.image.urlImage}}" ng-hide="{{doc.image.hasImage}}"/>
                 </br>
             </div>
         </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger btn-circle-sm annulla" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i></button>
-                        <button type="button" class="btn btn-success btn-circle-sm"  ng-click="del(doc.id, doc._rev)" data-dismiss="modal"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button type="button" class="btn btn-success btn-circle-sm"  ng-click="del(doc.id, doc._rev, doc.image)" data-dismiss="modal"><i class="fa fa-check" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
