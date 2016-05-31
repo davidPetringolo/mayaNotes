@@ -39,13 +39,21 @@ mayaNotes.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'pages/editView.html',
             controller: 'editController'
         })
-
         .state('insert', {
             url: '/insert/',
             templateUrl: 'pages/insertView.html',
             controller: 'insertController'
         })
-
+        .state('favourite', {
+            url: '/favourite/',
+            templateUrl: 'pages/favouriteView.html',
+            controller: 'favouriteController'
+        })
+        .state('trash', {
+            url: '/trash/',
+            templateUrl: 'pages/trashView.html',
+            controller: 'trashController'
+        })
         .state('contacts', {
             url: '/contacts/',
             templateUrl: 'pages/contactsView.html',
