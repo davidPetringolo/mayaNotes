@@ -16,9 +16,10 @@ mayaNotes.controller('detailsController', function ($scope, $state, $stateParams
     });
     
     $scope.del = function () {
-        uploadManager.deleteFile(_image, function (){
-                
-        });
+        if(_image.hasImage == true)
+            uploadManager.deleteFile(_image, function (){
+                    
+            });
         pouchService.delDoc(_id, rev);
         $state.go('home');
     };

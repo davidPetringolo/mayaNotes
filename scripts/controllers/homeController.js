@@ -12,9 +12,10 @@ mayaNotes.controller('homeController', function ($scope, $state, $stateParams, p
         _image = image;
 
         $scope.del = function () {
-            uploadManager.deleteFile(_image, function (){
-                
-            });
+            if(_image.hasImage == true)
+                uploadManager.deleteFile(_image, function (){
+                    
+                });
             pouchService.delDoc(idDel, revDel);
             $state.reload('home')
         }
