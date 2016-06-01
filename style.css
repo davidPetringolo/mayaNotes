@@ -322,3 +322,31 @@ strong {
 .nav li a {
     border-bottom: none;
 }
+.noNotes {
+    font-size: large;
+    text-align: center;
+    color: darkgrey;
+}
+.chip {
+    display:inline-block;
+    height:32px;
+    font-size:13px;
+    font-weight:500;
+    color:rgba(0,0,0,0.6);
+    line-height:32px;
+    padding:0 12px;
+    border-radius:16px;
+    background-color:#e4e4e4;
+    margin-bottom:5px;
+    margin-right:5px
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #FFFFFF;
+    background-color: transparent;
+}
+.detailsText {
+    padding-top: 5px;
+}
+.navbar-default .navbar-brand {
+    margin-right: 10%;
+}

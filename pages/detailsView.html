@@ -2,29 +2,30 @@
     <div class="col-md-12">
         <br>
         <div class="row">
-            <div class="col-xs-10 col-sm-11 col-md-11">
+            <div class="col-xs-8 col-sm-8 col-md-10">
                 <strong>{{doc.title}}</strong><p class="lastupdate"> Ultimo aggiornamento: {{doc.date | amDateFormat:'DD/MM/YYYY HH:mm'}}</p>
             </div>
-            <div class="col-xs-2 col-sm-1 col-md-1">
+            <div class="col-xs-4 col-sm-4 col-md-2 pulsanti">
+                <i ui-sref="edit({id:doc._id, rev:doc._rev})" class="fa fa-pencil fa-2x" aria-hidden="true">&nbsp;&nbsp;</i>
                 <i data-toggle="modal" data-target="#deleteModal" class="fa fa-trash fa-2x" aria-hidden="true"></i>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div ng-repeat="n in doc.tag">
-                    {{n.text}}
-                </div>
+                <span ng-repeat="n in doc.tag track by $index">
+                    <span class="chip">{{n.text}}</span>
+                </span>
             </div>
         </div>
-        <div class="row">
+        <div class="row detailsText">
             <div class="col-md-12">
                 <div ng-bind=doc.text></div>
             </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-md-12">
                 <img src="{{doc.image.urlImage}}" ng-hide="{{doc.image.hasImage}}"/>
-                </br>
             </div>
         </div>
         <!-- Modal -->

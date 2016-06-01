@@ -6,7 +6,8 @@
             <input type="text" class="form-control" placeholder="Cerca" aria-describedby="basic-addon1" ng-model='query'>
         </div>
         <hr>
-        <div ng-repeat="el in list | filter: query">
+        <p class="noNotes" ng-show="!list.length">Nessuna nota in lista.</p>
+        <div ng-repeat="el in list | filter: query | orderBy: '-doc.date'">
             <div class="card">
                 <div class="card-header">
                     <div class="row">

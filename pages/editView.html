@@ -2,23 +2,27 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <h2> Modifica Nota</h2>
+                <h3> Modifica Nota</h3>
             </div>
         </div>
         <form>
-            <br><br>
-            <label for="name">Titolo</label>
-            <input type="text" class="form-control" id="name" ng-model="title" ng-value=doc.title>
-            <br><br>
+            <div class="form-group">
+                <label for="name">Titolo</label>
+                <input type="text" class="form-control" id="name" ng-model="title" ng-value=doc.title>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tag</label> <br>
+                <tags-input ng-model="tags" id="tags"></tags-input>
+            </div>
             <div class="form-group">
                 <label for="text">Testo:</label>
                 <textarea class="form-control" rows="10" id="text" ng-model="text" ng-bind=doc.text></textarea>
             </div>
             <div class="form-group">
-                <img src="{{urlImage}}" ng-hide="{{hasImage}}"/>
+                <label for="image" ng-hide="{{hasImage}}">Immagine:</label>
+                <img class="img-responsive" id="image" src="{{urlImage}}" ng-hide="{{hasImage}}"/>
                 </br>
-                </br>
-                <input type="file" id="file-chooser" /><div id="results"></div>
+                <input type="file" id="file-chooser"/><div id="results"></div>
             </div>
         </form>
         <div class="row" >

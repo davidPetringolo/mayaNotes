@@ -30,7 +30,7 @@ mayaNotes.controller('editController', function ($scope, $state, $stateParams, p
             "_urlImage": $scope.urlImage,
             "_guid": $scope.guid,
             "_path": $scope.path
-        }
+        };
 
         if(document.getElementById('file-chooser').files[0] != null){
             uploadManager.upload(fileChooser, _title, _image, function (url){
