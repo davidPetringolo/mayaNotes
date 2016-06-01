@@ -1,9 +1,7 @@
 mayaNotes.service('pouchService', function(pouchDB) {
 
     var db = new pouchDB("localnotes");
-    var remdb = new pouchDB("http://ec2-52-40-220-228.us-west-2.compute.amazonaws.com:5984/mayadb"); //Oregon new
-    //var remdb = new pouchDB("http://ec2-52-58-116-62.eu-central-1.compute.amazonaws.com:5984/mayadb"); //Frankfurt ew
-    //var remdb = new pouchDB("http://ec2-52-39-178-119.us-west-2.compute.amazonaws.com:5984/mayadb"); //Oregon old
+    var remdb = new pouchDB("http://ec2-52-40-220-228.us-west-2.compute.amazonaws.com:5984/mayadb");
 
     db.sync(remdb, {
       live: true,
@@ -19,7 +17,6 @@ mayaNotes.service('pouchService', function(pouchDB) {
     });
     
     //MODO SCORRETTO: non si rimuove un oggetto, si aggiunge un campo delete mediante l'update
-    //Change name of "delDoc" to "emptyTrash"
 
     this.delDoc = function (id, rev) {
 
@@ -29,48 +26,22 @@ mayaNotes.service('pouchService', function(pouchDB) {
             }).catch(function (err) {
             //console.log(err);
         });
-    }; 
-
-    //Change the name of "realDelDoc" to "delDoc" <- fix parameters errors
+    };
     
-    //Doesn't remove the object, changest the "isDel" value instead to "true"
-    this.realDelDoc = function (_id) {
-        /**
-         *retrives info using details,
-         *sets "isDel" as true using editdoc
-         */
-        
-        //probably this doesn't work. Also it's a very trivial way to do it
-        pouchService.details(_id, function (err, result) {
-            if(!err) {
-                this.editDoc(result.id, 
-                    result.rev,
-                    result.title, 
-                    result.text, 
-                    result.tag, 
-                    result.date, 
-                    result.hasImage, 
-                    result.urlImage,
-                    true); //"deletes" the note -> sets isDel as true
-            } else {
-                Console.error("Error while retriving note details.")
-            }
-        });
-        
-    }
-
-    this.insertDoc = function (title, text, tag, hasImage, urlImage, isDel) {
+    this.insertDoc = function (title, text, tag, imageData) {
 
         db.post({
-            date: new Date().toISOString(), 
-            /*The ISO format doesn't consider the timezone.
-             *Add the amount of seconds corresponding on the Italian timezone(2h from UTC+0 <- Greenwich Meridian).*/
+            date: new Date().toISOString(),
             title: title,
             text: text,
             tag: tag,
-            hasImage: hasImage,
-            urlImage: urlImage,
-            isDel: isDel
+            image: {
+                hasImage: imageData._hasImage,
+                urlImage: imageData._urlImage,
+                guid: imageData._guid,
+                path: imageData._path
+            }
+            
         }).then(function (response) {
             //console.log(response);
 
@@ -79,7 +50,7 @@ mayaNotes.service('pouchService', function(pouchDB) {
         });
     };
 
-    this.editDoc = function (id, rev, title, text, tag, date, hasImage, urlImage) {
+    this.editDoc = function (id, rev, title, text, tag, date, imageData) {
 
         db.put({
             date: date,
@@ -88,9 +59,12 @@ mayaNotes.service('pouchService', function(pouchDB) {
             title: title,
             text: text,
             tag: tag,
-            hasImage: hasImage,
-            urlImage: urlImage,
-            isDel: false
+            image: {
+                hasImage: imageData._hasImage,
+                urlImage: imageData._urlImage,
+                guid: imageData._guid,
+                path: imageData._path
+            }
         }).then(function(response) {
             console.log(response);
         }).catch(function (err) {
